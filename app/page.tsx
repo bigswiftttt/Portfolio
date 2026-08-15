@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "./components/Container";
 import { Button } from "./components/Button";
+import { projects } from "./lib/projects";
 
 export default function Home() {
   return (
@@ -32,14 +33,11 @@ export default function Home() {
             <span className="font-mono text-xs text-muted mt-2 md:mt-0">[ 01 – 04 ]</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { name: "StudyOS", tag: "ED-TECH PLATFORM", year: "2026" },
-              { name: "DevForge", tag: "DEVELOPER TOOLS", year: "2026" },
-              { name: "Atlas", tag: "PRODUCTIVITY APP", year: "2026" },
-              { name: "Glamorous Thread", tag: "FASHION ECOMMERCE", year: "2026" },
-            ].map((project) => (
-              <Link key={project.name} href="/work" className="group block">
-                <div className="aspect-[4/5] bg-[var(--border)]/20 border border-border/40 overflow-hidden mb-4" />
+            {projects.map((project) => (
+              <Link key={project.slug} href={`/work/${project.slug}`} className="group block">
+                <div className="aspect-[4/5] border border-border/40 overflow-hidden mb-4">
+                  <img src={project.image} alt={project.name} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+                </div>
                 <div className="flex justify-between items-end border-t border-transparent group-hover:border-border/30 pt-3 transition-colors duration-300">
                   <div>
                     <h3 className="font-display text-2xl">{project.name}</h3>

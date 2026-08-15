@@ -1,69 +1,89 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Container } from "./components/Container";
+import { Button } from "./components/Button";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="pt-[140px] md:pt-[200px] pb-40">
+      <Container className="max-w-none px-6 md:px-20">
+        <section className="grid grid-cols-4 md:grid-cols-12 gap-8 mb-40">
+          <div className="col-span-4 md:col-span-10 md:col-start-2">
+            <h1 className="font-display font-extrabold tracking-tighter leading-[0.95] text-[clamp(40px,8vw,96px)] animate-fade-up">
+              BUILDING <br />
+              <span className="text-muted">REFINED</span> <br />
+              SOFTWARE.
+            </h1>
+            <div className="grid grid-cols-4 md:grid-cols-10 gap-8 mt-12 md:mt-16">
+              <div className="col-span-4 md:col-span-4 md:col-start-7 flex flex-col items-start gap-8">
+                <p className="text-xl text-muted max-w-md animate-fade-up-delay">
+                  Crafting high-performance digital products with obsessive attention to detail, robust architecture, and premium aesthetics.
+                </p>
+                <div className="flex flex-wrap gap-4 w-full border-t border-border/30 pt-8">
+                  <Button href="/work">VIEW WORK →</Button>
+                  <Button href="/contact" variant="ghost">CONTACT</Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="mb-40">
+          <div className="flex flex-col md:flex-row justify-between items-baseline mb-10 border-b border-border/30 pb-4">
+            <h2 className="font-display text-2xl uppercase tracking-wide">Selected Works</h2>
+            <span className="font-mono text-xs text-muted mt-2 md:mt-0">[ 01 – 04 ]</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { name: "StudyOS", tag: "ED-TECH PLATFORM", year: "2026" },
+              { name: "DevForge", tag: "DEVELOPER TOOLS", year: "2026" },
+              { name: "Atlas", tag: "PRODUCTIVITY APP", year: "2026" },
+              { name: "Glamorous Thread", tag: "FASHION ECOMMERCE", year: "2026" },
+            ].map((project) => (
+              <Link key={project.name} href="/work" className="group block">
+                <div className="aspect-[4/5] bg-[var(--border)]/20 border border-border/40 overflow-hidden mb-4" />
+                <div className="flex justify-between items-end border-t border-transparent group-hover:border-border/30 pt-3 transition-colors duration-300">
+                  <div>
+                    <h3 className="font-display text-2xl">{project.name}</h3>
+                    <p className="font-mono text-xs text-muted mt-1">{project.tag}</p>
+                  </div>
+                  <span className="font-mono text-xs text-muted">{project.year}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+        <section>
+          <div className="flex flex-col md:flex-row justify-between items-baseline mb-10 border-b border-border/30 pb-4">
+            <h2 className="font-display text-2xl uppercase tracking-wide">Core Stack</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div className="md:col-span-4">
+              <p className="text-muted">
+                A deliberate selection of modern tools optimized for performance, scalability, and developer experience.
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              {[
+                { n: "01", name: "TypeScript / Next.js", tags: ["FRONTEND"] },
+                { n: "02", name: "Node.js / PostgreSQL", tags: ["BACKEND"] },
+                { n: "03", name: "Supabase", tags: ["DATA & AUTH"] },
+                { n: "04", name: "Gemini / Groq API", tags: ["AI"] },
+              ].map((item) => (
+                <div key={item.n} className="border-b border-border/30 py-6 flex justify-between items-center">
+                  <div className="flex items-center gap-6">
+                    <span className="font-mono text-xs text-muted w-8">{item.n}</span>
+                    <span className="font-display text-2xl">{item.name}</span>
+                  </div>
+                  <div className="flex gap-2">
+                    {item.tags.map((tag) => (
+                      <span key={tag} className="px-3 py-1 border border-border/40 rounded-full font-mono text-xs text-muted">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Container>
     </div>
   );
 }

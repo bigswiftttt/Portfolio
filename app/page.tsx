@@ -35,7 +35,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project) => (
               <Link key={project.slug} href={`/work/${project.slug}`} className="group block">
-                <div className="aspect-[4/5] border border-border/40 overflow-hidden mb-4">
+                <div className="aspect-video border border-border/40 overflow-hidden mb-4">
                   <img src={project.image} alt={project.name} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="flex justify-between items-end border-t border-transparent group-hover:border-border/30 pt-3 transition-colors duration-300">

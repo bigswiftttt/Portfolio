@@ -21,10 +21,12 @@ export default function About() {
             <Container className="max-w-none px-6 md:px-20">
                 <section className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-32">
                     <div className="md:col-span-5">
-                        <div className="aspect-[3/4] w-full bg-border/10 border border-border/40" />
+                        <div className="aspect-[3/4] w-full border border-border/40 overflow-hidden">
+                            <img src="/about-portrait.png" alt="Awwal Bashir" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                        </div>
                     </div>
                     <div className="md:col-span-6 md:col-start-7 flex flex-col justify-center gap-8">
-                        <h1 className="font-display text-4xl md:text-5xl">Building precision interfaces.</h1>
+                        <h1 className="font-display text-4xl md:text-5xl animate-fade-up">Building precision interfaces.</h1>
                         <div className="text-muted flex flex-col gap-6 max-w-2xl">
                             <p>I&apos;m a full-stack developer focused on the intersection of technical excellence and premium design. I build systems that feel inevitable — where every component exists with purpose and restraint.</p>
                             <p>My work draws inspiration from editorial minimalism, translating that sense of permanence into digital experiences.</p>
